@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-4 col-sm-6 p-3" *ngFor="let p of listProductos">
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.pexels.com/{{p.imgSrc}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{p.product | titlecase}}</h5>
+                <hr>
+                <div class="card-text">
+                    <b>Ingredientes:</b> {{p.ingredients}}
+                    <br>
+                    <b>Peso:</b> {{p.weight}} <br>
+                    <b>Calorías:</b> {{p.calories}} <br>
+                    <b>Precio:</b> {{p.price | precio}}
+                </div>
+                <hr>
+                <div class="card-text">
+                    <div class="d-grid gap-2 col-12 mx-auto">
+                        <button class="btn btn-primary" type="button" (click)="agregar(p)">Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

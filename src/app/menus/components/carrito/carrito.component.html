@@ -1,0 +1,56 @@
+<h2>Mis compras</h2>
+<hr>
+
+<div class="row" *ngIf="!(products.length > 0); else divListaProductos;">
+    <h2>No hay productos seleccionados</h2>
+</div>
+
+<ng-template #divListaProductos>
+    <table class="table table-hover">
+        <thead>
+            <tr> 
+                <th>#</th> 
+                <th> </th> 
+                <th> Producto </th> 
+                <th> Cantidad </th> 
+                <th> Precio </th>
+                <th> Sub </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products; let i = index;" >
+                <th>{{i+1}}</th> 
+                <td>
+                    <img 
+                        class="small-flag"
+                        src="https://images.pexels.com/{{p.imgSrc}}"   
+                    />
+                </td>
+                <th>{{p.product}}</th> 
+                <th>{{p.quantity}} </th>
+                <th>{{p.price | precio }}</th> 
+                <th>{{p.price | total: p.quantity }}</th> 
+                <th> 
+                    <button type="button" 
+                            class="btn btn-danger btn-sm"
+                            (click)="eliminar(p.id)"
+                    > 
+                    Quitar 
+                    </button>
+                </th>
+            </tr>        
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th> 
+                <th> </th> 
+                <th> </th> 
+                <th> </th> 
+                <th> </th>
+                <td>Total:</td>
+                <td><b>Total: </b>{{total | precio}}</td>
+              </tr>
+        </tfoot>
+    </table>
+</ng-template>

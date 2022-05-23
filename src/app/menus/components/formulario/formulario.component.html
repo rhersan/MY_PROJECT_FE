@@ -1,0 +1,71 @@
+<h1>Editar Usuario</h1>
+<div class="row">    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Nombre:</label>*
+            <input class="form-control"
+                    type="text"
+                    [(ngModel)]="producto.product"
+                    required/>
+            <span class="text-danger" style="position:absolute"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Ingredientes:</label>*
+            <input class="form-control"
+                    type="text"
+                    [(ngModel)]="producto.ingredients"
+                    required/>
+            <span class="text-danger" style="position:absolute"></span>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row"> 
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">Categoria:</label>*
+            <select class="form-control" name="miselect" [(ngModel)]="producto.idCategory" >
+            <option [value]="item.id" *ngFor="let item of lista">{{item.name}}</option>
+            </select>
+            <span class="text-danger" style="position:absolute"></span>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">Peso:</label>*
+            <input class="form-control"
+                    type="number"
+                    [(ngModel)]="producto.weight"
+                    required/>
+            <span class="text-danger" style="position:absolute"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">Calorias:</label>*
+            <input class="form-control"
+                    type="number"
+                    [(ngModel)]="producto.calories"
+                    required/>
+            <span class="text-danger" style="position:absolute"></span>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-danger m-1"  
+            (click)="regresar()"      
+        >        
+        Cancelar
+        </button>
+        <button class="btn btn-primary m-1"  
+        (click)="guardar()"      
+        >
+        Guardar
+        </button>
+    </div>
+</div>
